@@ -15,14 +15,14 @@ pub fn compile(source: &str, options: RawOptions) -> CompileResult {
     result
 }
 
-fn analyze_component(root: &Root, source: &str, options: &ValidOptions) -> Analysis {
+fn analyze_component(root: &Node<Root>, source: &str, options: &ValidOptions) -> Analysis {
     Analysis
 }
 
 fn transform_component(analysis: Analysis, source: &str, options: &ValidOptions) -> CompileResult {
     CompileResult::default()
 }
-fn to_public_ast(source: &str, ast: Root, modern: bool) -> Root {
+fn to_public_ast(source: &str, ast: Node<Root>, modern: bool) -> Node<Root> {
     ast
 }
 
@@ -32,7 +32,7 @@ struct Analysis;
 pub struct CompileResult {
     pub js: Blob,
     pub css: Option<Blob>,
-    ast: Root
+    ast: Node<Root>
 }
 
 #[derive(Debug, Default, PartialEq)]
