@@ -56,4 +56,22 @@ export default function App($$anchor) {
 }".to_string();
         assert_eq!(result, compile("", RawOptions::default()));
     }
+
+    #[test]
+    fn test_hello() {
+        let mut result = CompileResult::default();
+        result.js.code = 
+"import * as $ from \"svelte/internal/client\";
+
+var root = $.template(`Hello world`, 1);
+
+export default function App($$anchor) {
+	$.next();
+
+	var fragment = root();
+
+	$.append($$anchor, fragment);
+}".to_string();
+        assert_eq!(result, compile("Hello world", RawOptions::default()));
+    }
 }
