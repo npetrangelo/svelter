@@ -47,7 +47,13 @@ mod test {
 
     #[test]
     fn test_empty() {
-        let result = CompileResult::default();
+        let mut result = CompileResult::default();
+        result.js.code = 
+"import * as $ from \"svelte/internal/client\";
+
+export default function App($$anchor) {
+	
+}".to_string();
         assert_eq!(result, compile("", RawOptions::default()));
     }
 }
