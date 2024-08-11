@@ -30,14 +30,14 @@ struct Analysis;
 
 #[derive(Debug, Default, PartialEq)]
 pub struct CompileResult {
-    js: Blob,
-    css: Option<Blob>,
+    pub js: Blob,
+    pub css: Option<Blob>,
     ast: Root
 }
 
 #[derive(Debug, Default, PartialEq)]
-struct Blob {
-    code: String,
+pub struct Blob {
+    pub code: String,
     map: String
 }
 
